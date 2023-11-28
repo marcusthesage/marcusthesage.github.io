@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'VT323', monospace;
+
+}
+body {
+    background-color:#000000;
+}
+
+#store {
+    border: 2px rgb(47, 255, 68);
+    outline-style: solid;
+    outline-color: chartreuse;
+    margin: 10%;
+    height: 600px;
+    position: relative;
+    
+    
+
+
+}
+
+#cart {
+    border: 2px rgb(47, 255, 68);
+    outline-style: solid;
+    outline-color: chartreuse;
+    margin: 10%;
+    height: 225px;
+    position: relative;
+
+    
+    
+
+
+}
+
+
+h1 {
+    text-align: center;
+    color: rgb(47, 255, 68);
+    font-size: 1.75rem;
+    padding: 1rem;
+}
+
+p {
+    text-align: center;
+    color: rgb(47, 255, 68);
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+li {
+    text-align: center;
+    color: rgb(47, 255, 68);
+    font-size: 2rem;
+    
+}
+
+.button {
+    border: 1px rgb(47, 255, 68);
+    outline-style: solid;
+    outline-color: chartreuse;
+    background-color: #000000;
+    color: chartreuse;
+    padding: auto;
+  
+    }
+    .next{
+        font-size: 2.5rem;
+        margin-left: 40%;
+        position: absolute;
+        
+        
+    }
