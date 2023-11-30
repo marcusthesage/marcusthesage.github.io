@@ -153,7 +153,47 @@ const sandwich = {
 
 }
 
-console.log(document.all)
+let selectedBread = '';
+let selectedMeat = '';
+let selectedCheese = '';
+let selectedToasted = '';
+let selectedCondiments = '';
+let selectedToppings = '';
+
+
+function selectOption(option) {
+  if (option === 'Sour Dough' || option === 'Ciabata Bun' || option === 'Marble Rye' || option === 'Honey Wheat' || option === 'Croissant') {
+    selectedBread = option;
+  } else if (option === 'ham' || option === 'turkey' || option === 'vegetarian') {
+    selectedFilling = option;
+  }
+
+  updateIngredientLists();
+}
+
+function updateIngredientLists() {
+  const breadList = document.getElementById('breadList');
+  const meatList = document.getElementById('meatList');
+
+  // Clear existing content
+  breadList.innerHTML = '';
+  meatList.innerHTML = '';
+
+  // Update content based on selected ingredients
+  if (selectedBread) {
+    const breadItem = document.getElementById('breadList');
+    breadItem.textContent = `${selectedBread}`;
+    breadList.appendChild(breadItem);
+  }
+
+  if (selectedMeat) {
+    const meatItem = document.getElementById('meatList');
+    meatItem.textContent = selectedMeat;
+    meatList.appendChild(meatItem);
+  }
+}
+
+  //console.log(breadChoice)
 
 
 
@@ -165,4 +205,5 @@ console.log(document.all)
 
 
 
-document.getElementById("Score").innerHTML = sandwich.sandwichBread.bread5.bread5name;
+
+//document.getElementById("Score").innerHTML = sandwich.sandwichBread.bread5.bread5name;

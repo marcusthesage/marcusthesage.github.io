@@ -10,7 +10,7 @@
     <div id="store"> <h1 id="demo">Welcome to Fisherman's Sandwich Builder (PROTOTYPE)</h1>
         <p id="Fisherman">Lets get started! What kind of bread would you like?</p>
         <p id="Choice">Your choices are:
-            <button type="button" class="button choices">Sour Dough</button>
+            <button onclick="selectOption('Sour Dough')"class="button choices">Sour Dough</button>
             <button type="button" class="button choices">Ciabata Bun</button>
             <button type="button" class="button choices">Marble Rye</button>
             <button type="button" class="button choices">Honey Wheat</button>
@@ -19,19 +19,19 @@
         </p>
         <div id="cart">
             <ol>
-                <li>Bread</li>
-                <li>Meat</li> 
-                <li>Cheese</li> 
-                <li>Toasted</li> 
-                <li>Condiments</li>
-                <li>Vegetables</li>   
+                <li id="breadList"><button type="button" class="cart"> Bread</li>
+                <li id="meatList"><button type="button" class="cart">Meat</li> 
+                <li><button type="button" class="cart">Cheese</li> 
+                <li><button type="button" class="cart">Toasted</li> 
+                <li><button type="button" class="cart">Condiments</li>
+                <li><button type="button" class="cart">Vegetables</li>   
             </ol>
 
         </div>
-        <div id="Scoreboard">
+        <!--<div id="Scoreboard">
             <p id="scoreText">SCORE:</p> <p id="Score">000000</p>
         </div>
-        <!-- <button type="button" class="button next">NEXT</button> -->
+        <button type="button" class="button next">NEXT</button> -->
     </div>
    
 <script src="index.js"></script>   
