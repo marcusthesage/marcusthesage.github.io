@@ -161,24 +161,35 @@ let selectedCondiments = '';
 let selectedToppings = '';
 
 
-function selectOption(option) {
-  if (option === 'Sour Dough' || option === 'Ciabata Bun' || option === 'Marble Rye' || option === 'Honey Wheat' || option === 'Croissant') {
-    selectedBread = option;
-  } else if (option === 'ham' || option === 'turkey' || option === 'vegetarian') {
-    selectedFilling = option;
-  }
+function selectOption(breadType) {
+    // Get the 'breadList' element
+    var breadList = document.getElementById('breadList');
 
-  updateIngredientLists();
+    // Update the text of the 'breadList' button with the selected bread type
+    breadList.firstElementChild.textContent = breadType;
+
+    // Get all the bread buttons
+    var breadButtons = document.getElementsByClassName('choices');
+
+    // Loop through all the bread buttons
+    for (var i = 0; i < breadButtons.length; i++) {
+        // Remove the 'selected' class from each button
+        breadButtons[i].classList.remove('selected');
+
+        // If the button's text matches the selected bread type, add the 'selected' class to it
+        if (breadButtons[i].textContent === breadType) {
+            breadButtons[i].classList.add('selected');
+        }
+    }
 }
+
 
 function updateIngredientLists() {
   const breadList = document.getElementById('breadList');
   const meatList = document.getElementById('meatList');
 
   // Clear existing content
-  breadList.innerHTML = '';
-  meatList.innerHTML = '';
-
+  
   // Update content based on selected ingredients
   if (selectedBread) {
     const breadItem = document.getElementById('breadList');

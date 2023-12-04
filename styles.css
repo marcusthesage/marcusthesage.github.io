@@ -96,6 +96,12 @@ li {
     padding: auto;
   
     }*/
+
+    .button.selected {
+        /* Add your styles for the selected state here */
+        background-color: rgb(47, 255, 68);
+        color: #000000;
+    }
     .cart{
         font-size: 2rem;
         background-color: #000000;
