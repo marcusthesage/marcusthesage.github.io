@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fisherman's Sandwich Buillder</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,12 +18,12 @@
         </p>
         <div id="cart">
             <ol>
-               <li id="breadList"><button type="button" class="cart">Bread</button></li>
-                <li id="meatList"><button type="button" class="cart">Meat</button></li> 
-                <li><button type="button" class="cart">Cheese</button></li> 
-                <li><button type="button" class="cart">Toasted</button></li> 
-                <li><button type="button" class="cart">Condiments</button></li>
-                <li><button type="button" class="cart">Vegetables</button></li>      
+                <li id="breadList"><button onclick="selectIngredient('Bread')" type="button" class="cart">Bread</button></li>
+                <li id="meatList"><button onclick="selectIngredient('Meat')" type="button" class="cart">Meat</button></li>
+                <li id="cheeseList"><button onclick="selectIngredient('Cheese')" type="button" class="cart">Cheese</button></li> 
+                <li id="toastedList"><button onclick="selectIngredient('Toasted')" type="button" class="cart">Toasted</button></li> 
+                <li id="condimentsList"><button onclick="selectIngredient('Condiments')" type="button" class="cart">Condiments</button></li>
+                <li id="vegetablesList"><button onclick="selectIngredient('Vegetables')" type="button" class="cart">Vegetables</button></li>      
             </ol>
 
         </div>

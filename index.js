@@ -160,26 +160,80 @@ let selectedToasted = '';
 let selectedCondiments = '';
 let selectedToppings = '';
 
-
-function selectOption(breadType) {
-    // Get the 'breadList' element
-    var breadList = document.getElementById('breadList');
-
-    // Update the text of the 'breadList' button with the selected bread type
-    breadList.firstElementChild.textContent = breadType;
-
-    // Get all the bread buttons
-    var breadButtons = document.getElementsByClassName('choices');
-
-    // Loop through all the bread buttons
+// This function sets up the event listeners for the bread buttons
+function setupBreadButtons() {
+    var breadButtons = document.getElementsByClassName('bread-button');
     for (var i = 0; i < breadButtons.length; i++) {
-        // Remove the 'selected' class from each button
-        breadButtons[i].classList.remove('selected');
+        breadButtons[i].addEventListener('click', function() {
+            selectOption(this.textContent, 'Bread');
+        });
+    }
+}
 
-        // If the button's text matches the selected bread type, add the 'selected' class to it
-        if (breadButtons[i].textContent === breadType) {
-            breadButtons[i].classList.add('selected');
+// Call the function when the page loads
+window.onload = setupBreadButtons;
+
+
+function selectOption(option, ingredientType, action) {
+    // Get the list item for the specified ingredient type
+    var listItem = document.getElementById(ingredientType.toLowerCase() + 'List');
+
+    // If the action is 'remove', remove the selected option from the existing options
+    if (action === 'remove') {
+        var options = listItem.firstElementChild.textContent.split(', ');
+        var index = options.indexOf(option);
+        if (index !== -1) {
+            options.splice(index, 1);
         }
+        listItem.firstElementChild.textContent = options.join(', ');
+    } else {
+        // If the ingredient type is 'Condiments' or 'Vegetables', append the selected option to the existing options
+        if (ingredientType === 'Condiments' || ingredientType === 'Vegetables') {
+            var options = listItem.firstElementChild.textContent.split(', ');
+            if (options.indexOf(option) === -1) { // Check if the option is already in the list
+                if (listItem.firstElementChild.textContent !== ingredientType) {
+                    listItem.firstElementChild.textContent += ', ' + option;
+                } else {
+                    listItem.firstElementChild.textContent = option;
+                }
+            }
+        } else {
+            // Otherwise, replace the existing option with the selected option
+            listItem.firstElementChild.textContent = option;
+        }
+    }
+}
+// Define the options for each ingredient
+var options = {
+    'Bread': ['Sour Dough', 'Ciabata Bun', 'Marble Rye', 'Honey Wheat', 'Croissant'],
+    'Meat': ['Turkey', 'Ham', 'Chicken', 'Pepperoni and Salami', 'Roast Beef', 'Veggie'],
+    'Cheese': ['Provolone', 'Cheddar', 'Havarti', 'American Cheese', 'Swiss', 'Pepperjack', 'Gouda'], 
+    'Toasted': ['Toasted', 'Cold', ],
+    'Condiments': ['Ranch', 'Mayonaise', 'Hot Sauce', 'BBQ Sauce', 'Chipotle Mayo', 'Horseraddish', 'Mustard', 'Salt and Pepper'],
+    'Vegetables': ['Lettuce', 'Tomato', 'Onions', 'Cucumbers', 'Banana Peppers', 'Jalapeños', 'Pickles'],
+    // Add the options for the other ingredients here
+};
+
+function selectIngredient(ingredientType) {
+    // Get the 'Choice' paragraph
+    var choiceParagraph = document.getElementById('Choice');
+
+    // Clear the current options
+    choiceParagraph.innerHTML = 'Your choices are:';
+
+    // Get the options for the selected ingredient
+    var ingredientOptions = options[ingredientType];
+
+    // Create a new button for each option
+    for (var i = 0; i < ingredientOptions.length; i++) {
+        var button = document.createElement('button');
+        button.onclick = function() { selectOption(this.textContent, ingredientType); };
+        button.textContent = ingredientOptions[i];
+        button.type = 'button';
+        button.className = 'button choices';
+
+        // Add the button to the 'Choice' paragraph
+        choiceParagraph.appendChild(button);
     }
 }
 
@@ -204,6 +258,39 @@ function updateIngredientLists() {
   }
 }
 
+// Get the "store" div
+var storeDiv = document.getElementById('store');
+
+// Create a 'Reset' button
+var resetButton = document.createElement('button');
+resetButton.textContent = 'Reset';
+resetButton.onclick = resetSandwich;
+
+// Add the 'Reset' button to the "store" div
+storeDiv.appendChild(resetButton);
+
+function resetSandwich() {
+    // Define the ingredient types
+    var ingredientTypes = ['Bread', 'Meat', 'Cheese', 'Toasted', 'Condiments', 'Vegetables'];
+
+    // Loop through all the ingredient types
+    for (var i = 0; i < ingredientTypes.length; i++) {
+        // Get the list item for the current ingredient type
+        var listItem = document.getElementById(ingredientTypes[i].toLowerCase() + 'List');
+
+        // Reset the text of the button in the list item to the ingredient type
+        listItem.firstElementChild.textContent = ingredientTypes[i];
+    }
+
+    // Get all the option buttons
+    var optionButtons = document.getElementsByClassName('choices');
+
+    // Loop through all the option buttons
+    for (var i = 0; i < optionButtons.length; i++) {
+        // Remove the 'selected' class from each button
+        optionButtons[i].classList.remove('selected');
+    }
+}
   //console.log(breadChoice)
 
 
