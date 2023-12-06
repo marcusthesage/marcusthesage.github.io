@@ -28,11 +28,12 @@ body {
     outline-style: solid;
     outline-color: chartreuse;
     margin: 5%;
-    height: fit-content;
+    height: 700px;
     position: relative;
     margin-bottom: 10px;
     border-radius: 25px;
     padding: .25rem;
+    width: 400px;
 
 
     
