@@ -309,9 +309,7 @@ storeDiv.style.display = 'flex';
 storeDiv.style.justifyContent = 'center';
 storeDiv.style.alignItems = 'center';
 storeDiv.style.flexDirection = 'column';
-if (isSpecialSandwich()) {
-    console.log("You've made the special sandwich!");
-}
+
 
 
 // Total Combinations
