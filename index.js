@@ -158,20 +158,14 @@ let selectedMeat = '';
 let selectedCheese = '';
 let selectedToasted = '';
 let selectedCondiments = '';
-let selectedToppings = '';
+let selectedVegetables = '';
 
-// This function sets up the event listeners for the bread buttons
-function setupBreadButtons() {
-    var breadButtons = document.getElementsByClassName('bread-button');
-    for (var i = 0; i < breadButtons.length; i++) {
-        breadButtons[i].addEventListener('click', function() {
-            selectOption(this.textContent, 'Bread');
-        });
-    }
-}
 
-// Call the function when the page loads
-window.onload = setupBreadButtons;
+// Select the <p> tag with the "Choice" id and hide it
+document.getElementById('Choice').style.display = 'none';
+
+
+
 
 
 function selectOption(option, ingredientType, action) {
@@ -200,6 +194,20 @@ function selectOption(option, ingredientType, action) {
         } else {
             // Otherwise, replace the existing option with the selected option
             listItem.firstElementChild.textContent = option;
+        }
+    }
+
+    // Get all the option buttons
+    var optionButtons = document.getElementsByClassName('choices');
+
+    // Loop through all the option buttons
+    for (var i = 0; i < optionButtons.length; i++) {
+        // Remove the 'selected' class from each button
+        optionButtons[i].classList.remove('selected');
+
+        // If the button's text matches the selected option, add the 'selected' class to it
+        if (optionButtons[i].textContent === option) {
+            optionButtons[i].classList.add('selected');
         }
     }
 }
@@ -235,6 +243,36 @@ function selectIngredient(ingredientType) {
         // Add the button to the 'Choice' paragraph
         choiceParagraph.appendChild(button);
     }
+    // Select the <p> tag with the "Fisherman" id
+    var p = document.getElementById('Fisherman');
+
+    // Update the <p> tag based on the ingredientType
+    switch (ingredientType) {
+        case 'Bread':
+            p.textContent = 'What kind of bread would you like?';
+            break;
+        case 'Meat':
+            p.textContent = 'Choose your meat!';
+            break;
+            case 'Cheese':
+            p.textContent = 'Now what kind of cheese?';
+            break;
+            case 'Toasted':
+            p.textContent = 'Would you like your sandwich toasted? Or Cold?';
+            break;
+            case 'Condiments':
+            p.textContent = 'What condiments would you like?';
+            break;
+            case 'Vegetables':
+            p.textContent = 'Last but not lease, what vegetables would you like?';
+            break;
+        // Add more cases as needed...
+        default:
+            p.textContent = 'Make your sandwich';
+            break;
+            
+    }
+    document.getElementById('Choice').style.display = 'block';
 }
 
 
@@ -291,10 +329,59 @@ function resetSandwich() {
         optionButtons[i].classList.remove('selected');
     }
 }
+
+// Create an array to store the saved sandwiches
+var savedSandwiches = [];
+
+// Create an input field for the sandwich name
+var sandwichNameInput = document.createElement('input');
+sandwichNameInput.id = 'sandwichName';
+
+// Create a 'Save' button
+var saveButton = document.createElement('button');
+saveButton.textContent = 'Save';
+saveButton.onclick = function() {
+    // Get the sandwich name from the input field
+    var sandwichName = document.getElementById('sandwichName').value;
+
+    // Get the current sandwich from the `sandwich` object
+    var currentSandwich = sandwich;
+
+    // Save the sandwich name and sandwich to the `savedSandwiches` array
+    savedSandwiches.push({ name: sandwichName, sandwich: currentSandwich });
+
+    // Optionally, display the saved sandwiches in the UI
+    var savedSandwichesList = document.getElementById('savedSandwichesList');
+    var listItem = document.createElement('li');
+    listItem.textContent = sandwichName;
+    savedSandwichesList.appendChild(listItem);
+};
+
+// Add the input field and 'Save' button to the document
+storeDiv.appendChild(sandwichNameInput);
+storeDiv.appendChild(saveButton);
   //console.log(breadChoice)
 
 
+function updateSavedSandwichesList() {
+    // Get the saved sandwiches list
+    var savedSandwichesList = document.getElementById('savedSandwichesList');
 
+    // Clear the current list
+    while (savedSandwichesList.firstChild) {
+        savedSandwichesList.removeChild(savedSandwichesList.firstChild);
+    }
+
+    // Iterate over the saved sandwiches array
+    for (var i = 0; i < savedSandwiches.length; i++) {
+        // Create a new list item for each saved sandwich
+        var listItem = document.createElement('li');
+        listItem.textContent = savedSandwiches[i].name;
+
+        // Append the list item to the list
+        savedSandwichesList.appendChild(listItem);
+    }
+}
 
 
 
