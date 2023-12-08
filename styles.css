@@ -3,16 +3,15 @@
 * {
     box-sizing: border-box;
     font-family: 'VT323', monospace;
-
 }
 body {
     background-color:#000000;
 }
 #store {
-    border: 2px rgb(47, 255, 68);
+    border: 6px rgb(47, 255, 68);
     outline-style: solid;
-    outline-color: chartreuse;
-    height: 660px;
+    outline-color: crgb(47, 255, 68);
+    height: 750px;
     position: relative;
     max-width: 540px;
     border-radius: 25px;
@@ -20,20 +19,14 @@ body {
 #cart {
     border: 2px rgb(47, 255, 68);
     outline-style: solid;
-    outline-color: chartreuse;
+    outline-color: rgb(47, 255, 68);
     margin: 5%;
-    height: 700px;
+    height: 350px;
     position: relative;
     margin-bottom: 10px;
     border-radius: 25px;
     padding: .25rem;
     width: 400px;
-
-
-    
-    
-
-
 }
 h1 {
     text-align: center;
@@ -76,25 +69,85 @@ li {
     color: rgb(47, 255, 68);
     font-size: 2rem;
 }
-    .button.selected {
+.button.selected {
         background-color: rgb(47, 255, 68);
         color: #000000;
     }
-    .cart{
+.cart{
         font-size: 2rem;
         background-color: #000000;
-        color: chartreuse;
-        
-        
+        color: rgb(47, 255, 68);
     }
-    @media all and (min-width: 540px) {
+@media all and (min-width: 540px) {
         #store {
-            border: 2px rgb(47, 255, 68);
+            border: 6px rgb(47, 255, 68);
             outline-color: chartreuse;
             position: relative;
             max-width: 540px;
             border-radius: 25px;
             margin: auto;
         }
+
+    }
+
+    @media (max-width: 480px) {
+        #store {
+            height: 550px;
+            border: 6px rgb(47, 255, 68);
+            outline-style: solid;
+            outline-color: rgb(47, 255, 68);
+            position: relative;
+            max-width: 540px;
+            border-radius: 25px;
+            overflow:scroll;
+            padding: 1.5rem;
+            margin: auto;
+        
+        }
+        #cart {
+            border: 6px rgb(47, 255, 68);
+            outline-style: solid;
+            outline-color: rgb(47, 255, 68);
+            margin: 5%;
+            height: 400px;
+            position: relative;
+            margin-bottom: 10px;
+            border-radius: 25px;
+            padding: .25rem;
+            width: 250px;
+            overflow: scroll;
+        }
+
+        #Fisherman {
+            font-size: 1rem;
+            padding: 0rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(47, 255, 68);
+            font-size: 1.5rem;
+            padding: .5rem;
+            margin-top: 5px;
+        }
+
+        li {
+            text-align: center;
+            color: rgb(47, 255, 68);
+            font-size: 1.25rem;
+        }
+
+        .cart{
+            font-size: 1.75rem;
+            background-color: #000000;
+            color: rgb(47, 255, 68);
+            
+        }
+        #choice {
+            font-size: .5rem;
+            padding: 0rem;
+        }
+
+        
 
     }
