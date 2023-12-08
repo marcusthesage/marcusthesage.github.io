@@ -112,7 +112,7 @@ function selectOption(option, ingredientType, action) {
         }
     }
 }
-function selectIngredient(ingredientType) {
+function selectIngredient(ingredientType) { 
     // Get the 'Choice' paragraph
     var choiceParagraph = document.getElementById('Choice');
 
