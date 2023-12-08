@@ -1,5 +1,11 @@
-
-// Constants and Variables
+/*
+db    db  .d8b.  d8888b. d888888b  .d8b.  d8888b. db      d88888b .d8888. 
+88    88 d8' `8b 88  `8D   `88'   d8' `8b 88  `8D 88      88'     88'  YP 
+Y8    8P 88ooo88 88oobY'    88    88ooo88 88oooY' 88      88ooooo `8bo.   
+`8b  d8' 88~~~88 88`8b      88    88~~~88 88~~~b. 88      88~~~~~   `Y8b. 
+ `8bd8'  88   88 88 `88.   .88.   88   88 88   8D 88booo. 88.     db   8D 
+   YP    YP   YP 88   YD Y888888P YP   YP Y8888P' Y88888P Y88888P `8888Y' 
+ */ 
 const sandwich = {
     bread: "",
     meat: "",
@@ -22,13 +28,26 @@ var options = {
     'Meat': ['Turkey', 'Ham', 'Chicken', 'Pepperoni and Salami', 'Roast Beef', 'Veggie'],
     'Cheese': ['Provolone', 'Cheddar', 'Havarti', 'American Cheese', 'Swiss', 'Pepperjack', 'Gouda'], 
     'Toasted': ['Toasted', 'Cold', ],
-    'Condiments': ['Ranch', 'Mayonaise', 'Hot Sauce', 'BBQ Sauce', 'Chipotle Mayo', 'Horseraddish', 'Mustard', 'Salt and Pepper'],
+    'Condiments': ['Ranch', 'Mayonnaise', 'Hot Sauce', 'BBQ Sauce', 'Chipotle Mayo', 'Horseraddish', 'Mustard', 'Salt and Pepper'],
     'Vegetables': ['Lettuce', 'Tomato', 'Onions', 'Cucumbers', 'Banana Peppers', 'Jalapeños', 'Pickles'],
     // Add the options for the other ingredients here
 };
 var savedSandwiches = [];
+var storeDiv = document.getElementById('store');
+var resetButton = document.createElement('button');
+var sandwichNameInput = document.createElement('input');
+var saveButton = document.createElement('button');
 
-// Functions
+
+
+/*
+d88888b db    db d8b   db  .o88b. d888888b d888888b  .d88b.  d8b   db .d8888. 
+88'     88    88 888o  88 d8P  Y8 `~~88~~'   `88'   .8P  Y8. 888o  88 88'  YP 
+88ooo   88    88 88V8o 88 8P         88       88    88    88 88V8o 88 `8bo.   
+88~~~   88    88 88 V8o88 8b         88       88    88    88 88 V8o88   `Y8b. 
+88      88b  d88 88  V888 Y8b  d8    88      .88.   `8b  d8' 88  V888 db   8D 
+YP      ~Y8888P' VP   V8P  `Y88P'    YP    Y888888P  `Y88P'  VP   V8P `8888Y' 
+ */
 function selectOption(option, ingredientType, action) {
     // Get the list item for the specified ingredient type
     var listItem = document.getElementById(ingredientType.toLowerCase() + 'List');
@@ -135,7 +154,7 @@ function selectIngredient(ingredientType) {
             p.textContent = 'What condiments would you like?';
             break;
             case 'Vegetables':
-            p.textContent = 'Last but not lease, what vegetables would you like?';
+            p.textContent = 'Last but not least, what vegetables would you like?';
             break;
         // Add more cases as needed...
         default:
@@ -220,7 +239,6 @@ function isSpecialSandwich() {
 
     return true;
 }
-
 function arraysContainSameElements(array1, array2) {
     if (array1.length !== array2.length) {
         return false;
@@ -237,47 +255,6 @@ function arraysContainSameElements(array1, array2) {
 
     return true;
 }
-// Event Handlers and Function Calls
-// Select the <p> tag with the "Choice" id and hide it
-document.getElementById('Choice').style.display = 'none';
-
-
-
-
-
-// TEST TEST TEST //
-
-
-
-
-
-
-
-// Define the options for each ingredient
-
-// Get the "store" div
-var storeDiv = document.getElementById('store');
-
-// Create a 'Reset' button
-var resetButton = document.createElement('button');
-resetButton.textContent = 'Reset';
-resetButton.onclick = resetSandwich;
-
-// Add the 'Reset' button to the "store" div
-storeDiv.appendChild(resetButton);
-
-
-
-
-
-
-// Create an input field for the sandwich name
-var sandwichNameInput = document.createElement('input');
-sandwichNameInput.id = 'sandwichName';
-storeDiv.appendChild(sandwichNameInput);
-// Create a 'Save' button
-var saveButton = document.createElement('button');
-saveButton.textContent = 'Save';
 saveButton.onclick = function() {
     // Get the sandwich name from the input field
     var sandwichName = document.getElementById('sandwichName').value;
@@ -303,18 +280,24 @@ saveButton.onclick = function() {
     downloadAnchorNode.remove();
     var fishermanParagraph = document.getElementById('Fisherman');
     fishermanParagraph.textContent = "You've made a sandwich named " + sandwichName + "!";
+    if (isSpecialSandwich()) {
+    console.log("You've made the special sandwich!");
+}
 };
-storeDiv.appendChild(saveButton);
+
+// Event Handlers and Function Calls
+document.getElementById('Choice').style.display = 'none';
+resetButton.textContent = 'Reset';
+resetButton.onclick = resetSandwich;
+storeDiv.appendChild(resetButton);
+sandwichNameInput.id = 'sandwichName';
+storeDiv.appendChild(sandwichNameInput);
+saveButton.textContent = 'Save';
 storeDiv.style.display = 'flex';
 storeDiv.style.justifyContent = 'center';
 storeDiv.style.alignItems = 'center';
 storeDiv.style.flexDirection = 'column';
-if (isSpecialSandwich()) {
-    console.log("You've made the special sandwich!");
-}
-
-
-
+storeDiv.appendChild(saveButton);
 
 // Total Combinations
 var breadOptions = options['Bread'].length;
@@ -323,6 +306,5 @@ var cheeseOptions = options['Cheese'].length;
 var toastedOptions = options['Toasted'].length;
 var condimentOptions = Math.pow(2, options['Condiments'].length);
 var vegetableOptions = Math.pow(2, options['Vegetables'].length);
-
 var totalCombinations = breadOptions * meatOptions * cheeseOptions * toastedOptions * condimentOptions * vegetableOptions;
 //console.log(totalCombinations);

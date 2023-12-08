@@ -8,7 +8,6 @@
 body {
     background-color:#000000;
 }
-
 #store {
     border: 2px rgb(47, 255, 68);
     outline-style: solid;
@@ -17,12 +16,7 @@ body {
     position: relative;
     max-width: 540px;
     border-radius: 25px;
-    
-    
-
-
 }
-
 #cart {
     border: 2px rgb(47, 255, 68);
     outline-style: solid;
@@ -41,34 +35,28 @@ body {
 
 
 }
-
-
 h1 {
     text-align: center;
     color: rgb(47, 255, 68);
     font-size: 1.75rem;
     padding: 1rem;
 }
-
 #Fisherman {
     font-size: 2rem;
     padding: 1rem;
 }
-
 p {
     text-align: center;
     color: rgb(47, 255, 68);
     font-size: 1rem;
     padding: 0rem;
 }
-
 #Scoreboard {
     text-align: center;
     height: 175px;
    
     
 }
-
 #Score {
     padding: 0rem;
     font-size: 50px;
@@ -83,24 +71,11 @@ p {
     font-size: 25px;
     margin: auto;
 }
-
 li {
     text-align: center;
     color: rgb(47, 255, 68);
     font-size: 2rem;
-    
 }
-
-/*.button {
-    border: 1px rgb(47, 255, 68);
-    outline-style: solid;
-    outline-color: chartreuse;
-    background-color: #000000;
-    color: chartreuse;
-    padding: auto;
-  
-    }*/
-
     .button.selected {
         background-color: rgb(47, 255, 68);
         color: #000000;
@@ -112,7 +87,6 @@ li {
         
         
     }
-
     @media all and (min-width: 540px) {
         #store {
             border: 2px rgb(47, 255, 68);
