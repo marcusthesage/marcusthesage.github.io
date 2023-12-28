@@ -14,14 +14,7 @@ const sandwich = {
     condiments: [],
     vegetables: []
 }
-const specialSandwich = {
-    bread: "Ciabatta Bun",
-    meat: "Pepperoni and Salami",
-    cheese: 'Provolone',
-    toasted: "Toasted",
-    condiments: ["Ranch", "Mustard"],
-    vegetables: ["Lettuce", "Tomato", "Onions", "Cucumbers", "Banana Peppers", "Jalapeños", "Pickles"]
-};
+
 var options = {
 
     'Bread': ['Sour Dough', 'Ciabatta Bun', 'Marble Rye', 'Honey Wheat', 'Croissant'],
