@@ -92,12 +92,12 @@ li {
 
     @media (max-width: 480px) {
         #store {
-            height: 550px;
+            height: 650px;
             border: 6px rgb(47, 255, 68);
             outline-style: solid;
             outline-color: rgb(47, 255, 68);
             position: relative;
-            max-width: 540px;
+            max-width: 500px;
             border-radius: 25px;
             overflow:scroll;
             padding: 1.5rem;
@@ -109,11 +109,11 @@ li {
             outline-style: solid;
             outline-color: rgb(47, 255, 68);
             margin: 5%;
-            height: 400px;
+            height: 200px;
             position: relative;
             margin-bottom: 10px;
             border-radius: 25px;
-            padding: .25rem;
+            padding: 0rem;
             width: 250px;
             overflow: scroll;
         }
@@ -138,7 +138,7 @@ li {
         }
 
         .cart{
-            font-size: 1.75rem;
+            font-size: 1rem;
             background-color: #000000;
             color: rgb(47, 255, 68);
             
