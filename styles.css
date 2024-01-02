@@ -21,12 +21,13 @@ body {
     outline-style: solid;
     outline-color: rgb(47, 255, 68);
     margin: 5%;
-    height: 350px;
+    height: 250px;
     position: relative;
     margin-bottom: 10px;
     border-radius: 25px;
     padding: .25rem;
     width: 400px;
+    overflow: scroll;
 }
 h1 {
     text-align: center;
@@ -74,7 +75,7 @@ li {
         color: #000000;
     }
 .cart{
-        font-size: 2rem;
+        font-size: 1.5rem;
         background-color: #000000;
         color: rgb(47, 255, 68);
     }
