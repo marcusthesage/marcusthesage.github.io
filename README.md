@@ -8,7 +8,7 @@ Welcome to the Fisherman's Sandwich Builder (BETA v0.1.0)!
    Screenshot to share with friends!
 4. There is a special sandwich, the Fisherman's Special, if made, the winner will win a free future Fisherman's merchandise!
    
-Please email any sandwich you make to yndgaming@gmail.com .
-ANY and ALL feedback is appreciated. This is my first project so I know there are things that can be better. Feel free to check out my code! I need it!
+Please email any sandwich (*the JSON file that is made when you save*) you make to yndgaming@gmail.com .
+ANY and ALL feedback is appreciated. This is my first project so I know there are things that can be better. Feel free to check out my code! 
 
 Check out https://www.behance.net/marcushazley6 for more projects!
